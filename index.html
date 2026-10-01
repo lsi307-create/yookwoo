@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>제8회 전국 대학생 육우요리대회 | 공식 안내 & 접수</title>
+  
+  <!-- OG Meta Tags for SNS & Link Sharing -->
+  <meta property="og:title" content="제8회 전국 대학생 육우요리대회">
+  <meta property="og:description" content="농림축산식품부 주최 | 총상금 680만 원(본선 20팀 전원 상금) | 예선 접수 마감: 10/25(일)">
+  <meta property="og:image" content="logo.jpg">
+  <meta property="og:type" content="website">
+
+  <!-- Pretendard Font -->
+  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+
+  <style>
+    :root {
+      --primary: #1B5E20; /* 육우 공식 브랜드 딥그린 */
+      --primary-hover: #155724;
+      --primary-red: #D32F2F;
+      --bg-color: #F8F9FA;
+      --card-bg: #FFFFFF;
+      --text-main: #191F28;
+      --text-sub: #4E5968;
+      --text-muted: #8B95A1;
+      --border-color: #E5E8EB;
+      --radius-sm: 12px;
+      --radius-md: 18px;
+      --radius-lg: 24px;
+      --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
+      --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.06);
+      --shadow-lg: 0 12px 32px rgba(27, 94, 32, 0.16);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      display: flex;
+      justify-content: center;
+      min-height: 100vh;
+      line-height: 1.5;
+    }
+
+    /* Mobile Container Frame */
+    .app-container {
+      width: 100%;
+      max-width: 440px;
+      padding: 32px 20px 80px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    /* 1. Profile Header */
+    .profile-header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding-bottom: 4px;
+    }
+
+    .profile-avatar-wrap {
+      position: relative;
+      margin-bottom: 16px;
+    }
+
+    .profile-avatar-img {
+      width: 92px;
+      height: 92px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 8px 24px rgba(27, 94, 32, 0.18);
+      border: 3.5px solid #FFFFFF;
+      display: block;
+      background: #007042;
+    }
+
+    .profile-badge {
+      position: absolute;
+      bottom: -1px;
+      right: -1px;
+      background: #1976D2;
+      color: #fff;
+      border-radius: 50%;
+      width: 26px;
+      height: 26px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid #FFFFFF;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    }
+
+    .profile-title {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      margin-bottom: 6px;
+      letter-spacing: -0.02em;
+    }
+
+    .profile-bio {
+      font-size: 13.5px;
+      color: var(--text-sub);
+      font-weight: 500;
+      line-height: 1.45;
+      margin-bottom: 16px;
+      white-space: pre-line;
+    }
+
+    /* Social Icons Row (Instagram, Blog, YouTube, Facebook) */
+    .social-links {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+    }
+
+    .social-btn {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-sub);
+      text-decoration: none;
+      transition: all 0.2s ease;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .social-btn:active {
+      transform: scale(0.92);
+      background: #F2F4F6;
+    }
+
+    .social-btn.insta { color: #E1306C; }
+    .social-btn.blog { color: #03C75A; font-weight: 900; font-size: 15px; }
+    .social-btn.youtube { color: #FF0000; }
+    .social-btn.facebook { color: #1877F2; }
+
+    /* 2. D-Day Live Counter Banner */
+    .dday-card {
+      background: linear-gradient(135deg, #1A3E26 0%, #0F2818 100%);
+      color: #FFFFFF;
+      border-radius: var(--radius-md);
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .dday-info h4 {
+      font-size: 11px;
+      font-weight: 700;
+      color: #81C784;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 2px;
+    }
+
+    .dday-info p {
+      font-size: 15px;
+      font-weight: 700;
+    }
+
+    .dday-timer {
+      background: rgba(255, 255, 255, 0.14);
+      padding: 6px 14px;
+      border-radius: 30px;
+      font-size: 13px;
+      font-weight: 800;
+      color: #FFF59D;
+      letter-spacing: 0.02em;
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* 3. Section Title & Carousel Nav Header */
+    .section-header-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: -6px;
+      padding: 0 4px;
+    }
+
+    .section-label {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text-muted);
+      letter-spacing: 0.04em;
+    }
+
+    /* Carousel Nav Arrows */
+    .slider-nav-btns {
+      display: flex;
+      gap: 6px;
+      align-items: center;
+    }
+
+    .slider-nav-btn {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-sub);
+      cursor: pointer;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.2s ease;
+    }
+
+    .slider-nav-btn:active {
+      transform: scale(0.9);
+      background: #EAECEF;
+    }
+
+    /* 4. Card News Carousel */
+    .cardnews-wrapper {
+      position: relative;
+    }
+
+    .cardnews-slider {
+      display: flex;
+      gap: 14px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      padding: 4px 2px 14px;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      user-select: none;
+      cursor: grab;
+    }
+
+    .cardnews-slider.dragging {
+      cursor: grabbing;
+      scroll-snap-type: none;
+      scroll-behavior: auto;
+    }
+
+    .cardnews-slider::-webkit-scrollbar {
+      display: none;
+    }
+
+    .cardnews-item {
+      flex: 0 0 88%;
+      scroll-snap-align: center;
+      background: var(--card-bg);
+      border-radius: var(--radius-md);
+      padding: 22px 20px;
+      border: 1px solid var(--border-color);
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 175px;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.2s ease;
+    }
+
+    .cardnews-item::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+    }
+
+    .cardnews-item.card-1::before { background: linear-gradient(90deg, #D32F2F, #FF7043); }
+    .cardnews-item.card-2::before { background: linear-gradient(90deg, #FF9800, #FDD835); }
+    .cardnews-item.card-3::before { background: linear-gradient(90deg, #1E88E5, #42A5F5); }
+    .cardnews-item.card-4::before { background: linear-gradient(90deg, #2E7D32, #66BB6A); }
+
+    .card-tag {
+      display: inline-block;
+      align-self: flex-start;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 6px;
+      margin-bottom: 10px;
+    }
+
+    .card-1 .card-tag { background: #FFEBEE; color: #C62828; }
+    .card-2 .card-tag { background: #FFF3E0; color: #E65100; }
+    .card-3 .card-tag { background: #E3F2FD; color: #1565C0; }
+    .card-4 .card-tag { background: #E8F5E9; color: #2E7D32; }
+
+    .card-title {
+      font-size: 17px;
+      font-weight: 800;
+      color: var(--text-main);
+      line-height: 1.4;
+      margin-bottom: 6px;
+    }
+
+    .card-desc {
+      font-size: 13px;
+      color: var(--text-sub);
+      line-height: 1.5;
+      font-weight: 500;
+    }
+
+    .card-dots {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-top: -4px;
+    }
+
+    .dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #D1D6DB;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .dot.active {
+      width: 22px;
+      border-radius: 4px;
+      background: var(--primary);
+    }
+
+    /* 5. Primary Highlight CTA Button */
+    .cta-main {
+      background: linear-gradient(135deg, #1E7E34 0%, #155724 100%);
+      color: #FFFFFF;
+      text-decoration: none;
+      border-radius: var(--radius-md);
+      padding: 18px 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: var(--shadow-lg);
+      font-weight: 800;
+      font-size: 16px;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      animation: pulse-glow 2.5s infinite;
+    }
+
+    @keyframes pulse-glow {
+      0%, 100% { box-shadow: 0 8px 24px rgba(27, 94, 32, 0.28); }
+      50% { box-shadow: 0 12px 32px rgba(27, 94, 32, 0.48); }
+    }
+
+    .cta-main:active {
+      transform: scale(0.98);
+    }
+
+    .cta-content {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .cta-subtext {
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.85);
+      font-weight: 600;
+    }
+
+    .cta-icon-circle {
+      width: 38px;
+      height: 38px;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* 6. Media Link Cards */
+    .link-group {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .link-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      text-decoration: none;
+      color: inherit;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.2s ease;
+    }
+
+    .link-card:active {
+      transform: scale(0.98);
+      background: #F9FAFB;
+      border-color: #D1D6DB;
+    }
+
+    .link-left {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .link-thumb {
+      width: 46px;
+      height: 46px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      flex-shrink: 0;
+    }
+
+    .thumb-guide { background: #FFF4E5; }
+    .thumb-notice { background: #E8F4FD; }
+    .thumb-shop { background: #EDF7EE; }
+
+    .link-texts h5 {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 2px;
+    }
+
+    .link-texts p {
+      font-size: 12.5px;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    .link-arrow {
+      color: #B0B8C1;
+      display: flex;
+      align-items: center;
+    }
+
+    /* 7. Professional FAQ Section */
+    .faq-group {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .faq-item {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      transition: all 0.2s ease;
+    }
+
+    .faq-question {
+      padding: 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      font-weight: 700;
+      font-size: 14.5px;
+      color: var(--text-main);
+      user-select: none;
+    }
+
+    .faq-chevron {
+      color: var(--text-muted);
+      transition: transform 0.25s ease;
+      flex-shrink: 0;
+    }
+
+    .faq-item.open .faq-chevron {
+      transform: rotate(180deg);
+      color: var(--primary);
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s cubic-bezier(0, 1, 0, 1), padding 0.3s ease;
+      background: #FAFAFB;
+      font-size: 13.5px;
+      color: var(--text-sub);
+      line-height: 1.65;
+      border-top: 1px solid transparent;
+      padding: 0 16px;
+    }
+
+    .faq-item.open .faq-answer {
+      max-height: 480px;
+      padding: 14px 16px 18px;
+      border-top-color: var(--border-color);
+    }
+
+    /* 8. Bottom Share Bar & Footer */
+    .footer-actions {
+      display: flex;
+      gap: 10px;
+      margin-top: 8px;
+    }
+
+    .btn-action {
+      flex: 1;
+      padding: 13px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-color);
+      background: var(--card-bg);
+      font-size: 13.5px;
+      font-weight: 700;
+      color: var(--text-sub);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .btn-action:active {
+      transform: scale(0.96);
+      background: #EAECEF;
+    }
+
+    .footer-text {
+      text-align: center;
+      font-size: 12px;
+      color: var(--text-muted);
+      padding-top: 10px;
+      line-height: 1.6;
+    }
+
+    /* Toast */
+    .toast {
+      position: fixed;
+      bottom: 28px;
+      left: 50%;
+      transform: translateX(-50%) translateY(100px);
+      background: rgba(25, 31, 40, 0.94);
+      color: #FFFFFF;
+      padding: 12px 20px;
+      border-radius: 30px;
+      font-size: 13.5px;
+      font-weight: 600;
+      backdrop-filter: blur(8px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+      z-index: 1000;
+      pointer-events: none;
+    }
+
+    .toast.show {
+      transform: translateX(-50%) translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="app-container">
+
+    <!-- 1. Profile Header with Official Logo -->
+    <header class="profile-header">
+      <div class="profile-avatar-wrap">
+        <img src="logo.jpg" alt="육우자조금관리위원회 로고" class="profile-avatar-img">
+        <div class="profile-badge" title="공식 인증">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+        </div>
+      </div>
+      <h1 class="profile-title">
+        제8회 전국 대학생 육우요리대회
+      </h1>
+      <p class="profile-bio">
+        농림축산식품부 주최 | 대상 200만 원(본선 20팀 전원 상금)
+        우리 육우를 활용한 건강한 레시피 공모전 👨‍🍳👩‍🍳
+      </p>
+
+      <!-- Verified Social Links -->
+      <div class="social-links">
+        <a href="https://www.instagram.com/yookwoo_official/" target="_blank" class="social-btn insta" title="공식 인스타그램">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+          </svg>
+        </a>
+
+        <a href="https://blog.naver.com/yookwoo_official" target="_blank" class="social-btn blog" title="네이버 공식 블로그">
+          <span>N</span>
+        </a>
+
+        <a href="https://www.youtube.com/channel/UCAEgv0w_DYCYb8QWKfPDieQ" target="_blank" class="social-btn youtube" title="공식 유튜브">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path>
+            <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
+          </svg>
+        </a>
+
+        <a href="https://www.facebook.com/yookwoo" target="_blank" class="social-btn facebook" title="공식 페이스북">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+          </svg>
+        </a>
+      </div>
+    </header>
+
+    <!-- 2. D-Day Live Counter -->
+    <div class="dday-card">
+      <div class="dday-info">
+        <h4>DEADLINE</h4>
+        <p>예선 접수 마감까지</p>
+      </div>
+      <div class="dday-timer" id="ddayTimer">D-24 14:20:05</div>
+    </div>
+
+    <!-- 3. Card News Carousel with Interactive Controls -->
+    <div class="section-header-row">
+      <span class="section-label">대회 핵심 카드뉴스</span>
+      <div class="slider-nav-btns">
+        <button class="slider-nav-btn" onclick="slidePrev()" title="이전 카드">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="15 18 9 12 15 6"></polyline>
+          </svg>
+        </button>
+        <button class="slider-nav-btn" onclick="slideNext()" title="다음 카드">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="cardnews-wrapper">
+      <div class="cardnews-slider" id="cardSlider">
+        <!-- Card 1 -->
+        <div class="cardnews-item card-1">
+          <span class="card-tag">🏆 총상금 680만 원</span>
+          <h3 class="card-title">본선 20팀 전원<br>상금 및 상장 수여!</h3>
+          <p class="card-desc">대상: 농림축산식품부장관상 + 200만 원<br>최우수상 2명, 우수상 3명, 본선상 14명</p>
+        </div>
+        <!-- Card 2 -->
+        <div class="cardnews-item card-2">
+          <span class="card-tag">🍳 온라인 예선 접수</span>
+          <h3 class="card-title">만드는 법 + 요리 사진<br>올리면 3분 만에 접수 끝!</h3>
+          <p class="card-desc">지글지글클럽 1902 미트클럽 게시판에<br>직접 개발한 건강 레시피 업로드</p>
+        </div>
+        <!-- Card 3 -->
+        <div class="cardnews-item card-3">
+          <span class="card-tag">📅 주요 일정</span>
+          <h3 class="card-title">예선 마감: 10/25(일)<br>본선 진출 20명 선발</h3>
+          <p class="card-desc">예심 발표: 10월 30일(금) 13:00<br>본선 라이브 경연: 11월 8일(일) 11:00</p>
+        </div>
+        <!-- Card 4 -->
+        <div class="cardnews-item card-4">
+          <span class="card-tag">🥩 필수 유의사항</span>
+          <h3 class="card-title">'국내산 육우' 사용 및<br>영수증 증빙 필수!</h3>
+          <p class="card-desc">마트/정육점/온라인 구매 영수증 필수 지참<br>(AI 생성 이미지는 심사 제외)</p>
+        </div>
+      </div>
+      <div class="card-dots" id="cardDots">
+        <span class="dot active" onclick="goToSlide(0)"></span>
+        <span class="dot" onclick="goToSlide(1)"></span>
+        <span class="dot" onclick="goToSlide(2)"></span>
+        <span class="dot" onclick="goToSlide(3)"></span>
+      </div>
+    </div>
+
+    <!-- 4. Primary Highlight CTA Button -->
+    <a href="https://yookoo.ziggleziggle.com/forums/QEEFHK73F" target="_blank" class="cta-main">
+      <div class="cta-content">
+        <span class="cta-subtext">지글지글클럽 1902 미트클럽</span>
+        <span>🔥 [예선 참가신청] 레시피 등록하기</span>
+      </div>
+      <div class="cta-icon-circle">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="5" y1="12" x2="19" y2="12"></line>
+          <polyline points="12 5 19 12 12 19"></polyline>
+        </svg>
+      </div>
+    </a>
+
+    <!-- 5. Media Link Cards -->
+    <div class="section-label">바로가기 안내</div>
+    <div class="link-group">
+      
+      <!-- Link 1 -->
+      <a href="https://yookoo.ziggleziggle.com/forums/QEEFHK73F/threads/T4POM8Q3J" target="_blank" class="link-card">
+        <div class="link-left">
+          <div class="link-thumb thumb-guide">📝</div>
+          <div class="link-texts">
+            <h5>3분 완성 접수 가이드 & 영수증 안내</h5>
+            <p>회원가입, 양식 작성법, 증빙 제출 팁</p>
+          </div>
+        </div>
+        <div class="link-arrow">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </div>
+      </a>
+
+      <!-- Link 2 -->
+      <a href="http://www.yookwoo.or.kr/news/notice.asp?mode=view&page=1&pageSize=10&search=0&serboardsort=&searchStr=&idx=2339" target="_blank" class="link-card">
+        <div class="link-left">
+          <div class="link-thumb thumb-notice">🏛️</div>
+          <div class="link-texts">
+            <h5>공식 공모요강 & 심사 배점표 (100점)</h5>
+            <p>활용도·창의성·위생 등 심사 기준 확인</p>
+          </div>
+        </div>
+        <div class="link-arrow">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </div>
+      </a>
+
+      <!-- Link 3: Verified Shopping Mall URL (www.yookwoo.com) -->
+      <a href="https://www.yookwoo.com/" target="_blank" class="link-card">
+        <div class="link-left">
+          <div class="link-thumb thumb-shop">🥩</div>
+          <div class="link-texts">
+            <h5>국내산 '육우' 공식 쇼핑몰</h5>
+            <p>우리육우 공식 온라인몰 (구매 영수증 발급 가능)</p>
+          </div>
+        </div>
+        <div class="link-arrow">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </div>
+      </a>
+
+    </div>
+
+    <!-- 6. Professional FAQ Section -->
+    <div class="section-label">FAQ</div>
+    <div class="faq-group">
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>Q. 참가비가 있나요?</span>
+          <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </div>
+        <div class="faq-answer">
+          없습니다. 참가비는 전액 무료이며, 전국 외식산업 및 식품·조리 관련학과 대학생이라면 누구나 참가할 수 있습니다.
+        </div>
+      </div>
+
+      <!-- Updated Benefit Question -->
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>Q. 본선 진출자는 어떤 혜택이 있나요?</span>
+          <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </div>
+        <div class="faq-answer">
+          본선 진출 20팀 전원에게 장관상 및 위원장상과 총 680만 원 규모의 상금이 수여됩니다.<br><br>
+          • <strong>대상 (1명)</strong>: 농림축산식품부장관상 + 상금 200만 원<br>
+          • <strong>최우수상 (2명)</strong>: 육우자조금관리위원장상 + 상금 각 100만 원<br>
+          • <strong>우수상 (3명)</strong>: 육우자조금관리위원장상 + 상금 각 50만 원<br>
+          • <strong>본선상 (14명)</strong>: 육우자조금관리위원장상 + 상금 각 20만 원<br><br>
+          ※ 수상작은 육우 공식 SNS 채널 및 언론 보도를 통한 레시피 홍보 혜택이 함께 제공됩니다.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>Q. 주재료로 수입육이나 한우를 사용할 수 있나요?</span>
+          <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </div>
+        <div class="faq-answer">
+          사용할 수 없습니다. 주재료인 소고기는 반드시 '국내산 육우'를 사용해야 합니다. 온·오프라인 매장 구매 영수증에 '국내산(육우)'가 명시되어 있어야 하며, 영수증 증빙 확인이 필수 심사 요건입니다.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>Q. 예선 접수는 어떻게 진행되나요?</span>
+          <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </div>
+        <div class="faq-answer">
+          지글지글클럽 회원가입 후 [1902 미트클럽 > 제8회 전국 대학생 육우요리대회] 게시판에 참가 신청서(자기소개, 참여동기 등)와 개발 레시피(조리법 및 완성 요리 사진)를 등록하시면 자동으로 예선 접수가 완료됩니다.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>Q. 재학증명서와 구매 영수증 제출 방법은 무엇인가요?</span>
+          <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </div>
+        <div class="faq-answer">
+          게시글 업로드 후, 예선 접수 마감(~10/25) 전까지 대회 운영사무국 공식 이메일로 지글지글클럽 닉네임과 요리명을 기재하여 재학증명서와 육우 구매 영수증 파일을 제출해주시면 됩니다.
+        </div>
+      </div>
+    </div>
+
+    <!-- 7. Footer Actions & Share -->
+    <div class="footer-actions">
+      <button class="btn-action" onclick="copyPageLink()">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+          <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+        </svg>
+        <span>링크 복사</span>
+      </button>
+      <button class="btn-action" onclick="sharePage()">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="18" cy="5" r="3"></circle>
+          <circle cx="6" cy="12" r="3"></circle>
+          <circle cx="18" cy="19" r="3"></circle>
+          <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+          <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+        </svg>
+        <span>친구에게 공유</span>
+      </button>
+    </div>
+
+    <footer class="footer-text">
+      주최: 농림축산식품부 | 주관: 육우자조금관리위원회<br>
+      제8회 전국 대학생 육우요리대회 운영사무국
+    </footer>
+
+  </div>
+
+  <!-- Toast -->
+  <div class="toast" id="toastMessage">링크가 복사되었습니다!</div>
+
+  <script>
+    // 1. D-Day Countdown Timer (Deadline: 2026-10-25 23:59:59)
+    function updateCountdown() {
+      const deadline = new Date("2026-10-25T23:59:59+09:00").getTime();
+      const now = new Date().getTime();
+      const diff = deadline - now;
+
+      const timerEl = document.getElementById("ddayTimer");
+      if (diff <= 0) {
+        timerEl.textContent = "접수 마감";
+        return;
+      }
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = String(Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))).padStart(2, '0');
+      const minutes = String(Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60))).padStart(2, '0');
+      const seconds = String(Math.floor((diff % (1000 * 60)) / 1000)).padStart(2, '0');
+
+      timerEl.textContent = `D-${days} ${hours}:${minutes}:${seconds}`;
+    }
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+
+    // 2. Enhanced Card News Carousel (Touch + Mouse Drag + Arrow Buttons + Dots)
+    const slider = document.getElementById('cardSlider');
+    const dots = document.querySelectorAll('#cardDots .dot');
+    const cards = document.querySelectorAll('.cardnews-item');
+
+    function getCardStep() {
+      if (cards.length === 0) return 300;
+      return cards[0].offsetWidth + 14; // card width + gap
+    }
+
+    function slideNext() {
+      slider.scrollBy({ left: getCardStep(), behavior: 'smooth' });
+    }
+
+    function slidePrev() {
+      slider.scrollBy({ left: -getCardStep(), behavior: 'smooth' });
+    }
+
+    function goToSlide(index) {
+      slider.scrollTo({ left: index * getCardStep(), behavior: 'smooth' });
+    }
+
+    // Update active dot on scroll
+    slider.addEventListener('scroll', () => {
+      const scrollPos = slider.scrollLeft;
+      const step = getCardStep();
+      const activeIndex = Math.min(dots.length - 1, Math.round(scrollPos / step));
+      
+      dots.forEach((dot, index) => {
+        dot.classList.toggle('active', index === activeIndex);
+      });
+    });
+
+    // Mouse Drag-to-Scroll Support for PC
+    let isDown = false;
+    let startX;
+    let scrollLeft;
+
+    slider.addEventListener('mousedown', (e) => {
+      isDown = true;
+      slider.classList.add('dragging');
+      startX = e.pageX - slider.offsetLeft;
+      scrollLeft = slider.scrollLeft;
+    });
+
+    slider.addEventListener('mouseleave', () => {
+      if (isDown) {
+        isDown = false;
+        slider.classList.remove('dragging');
+      }
+    });
+
+    slider.addEventListener('mouseup', () => {
+      if (isDown) {
+        isDown = false;
+        slider.classList.remove('dragging');
+      }
+    });
+
+    slider.addEventListener('mousemove', (e) => {
+      if (!isDown) return;
+      e.preventDefault();
+      const x = e.pageX - slider.offsetLeft;
+      const walk = (x - startX) * 1.5; // Drag sensitivity
+      slider.scrollLeft = scrollLeft - walk;
+    });
+
+    // 3. FAQ Accordion Toggle
+    document.querySelectorAll('.faq-question').forEach(q => {
+      q.addEventListener('click', () => {
+        const item = q.parentElement;
+        const isOpen = item.classList.contains('open');
+        
+        document.querySelectorAll('.faq-item').forEach(el => el.classList.remove('open'));
+        
+        if (!isOpen) {
+          item.classList.add('open');
+        }
+      });
+    });
+
+    // 4. Share & Copy Link Toast
+    function showToast(text) {
+      const toast = document.getElementById("toastMessage");
+      toast.textContent = text;
+      toast.classList.add("show");
+      setTimeout(() => toast.classList.remove("show"), 2200);
+    }
+
+    function copyPageLink() {
+      navigator.clipboard.writeText(window.location.href).then(() => {
+        showToast("페이지 링크가 복사되었습니다! ✨");
+      }).catch(() => {
+        showToast("링크 복사에 실패했습니다.");
+      });
+    }
+
+    function sharePage() {
+      if (navigator.share) {
+        navigator.share({
+          title: "제8회 전국 대학생 육우요리대회",
+          text: "농림축산식품부 주최 총상금 680만 원! 본선 20팀 전원 상금 지급!",
+          url: window.location.href
+        }).catch(() => {});
+      } else {
+        copyPageLink();
+      }
+    }
+  </script>
+</body>
+</html>
