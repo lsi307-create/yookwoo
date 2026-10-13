@@ -825,7 +825,7 @@
           </svg>
         </div>
         <div class="faq-answer">
-          게시글 업로드 후, 예선 접수 마감(~10/25) 전까지 대회 운영사무국 공식 이메일로 지글지글클럽 닉네임과 요리명을 기재하여 재학증명서와 육우 구매 영수증 파일을 제출해주시면 됩니다.
+          게시글 업로드 후, 예선 접수 마감(~10/25) 전까지 대회 운영사무국 공식 이메일로 지글지글클럽 닉네임과 요리명을 기재하여 재학증명서와 육우 구매 영수증 파일을 제출해주시면 됩니다. <strong>메일문의 : jviewcorp@gmail.com</strong>
         </div>
       </div>
     </div>
@@ -839,15 +839,12 @@
         </svg>
         <span>링크 복사</span>
       </button>
-      <button class="btn-action" onclick="sharePage()">
+      <button class="btn-action" onclick="copyEmail()">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="18" cy="5" r="3"></circle>
-          <circle cx="6" cy="12" r="3"></circle>
-          <circle cx="18" cy="19" r="3"></circle>
-          <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
-          <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+          <polyline points="22,6 12,13 2,6"></polyline>
         </svg>
-        <span>친구에게 공유</span>
+        <span>이메일 문의</span>
       </button>
     </div>
 
@@ -981,16 +978,33 @@
       });
     }
 
-    function sharePage() {
-      if (navigator.share) {
-        navigator.share({
-          title: "제8회 전국 대학생 육우요리대회",
-          text: "농림축산식품부 주최 총상금 680만 원! 본선 20팀 전원 상금 지급!",
-          url: window.location.href
-        }).catch(() => {});
+    function copyEmail() {
+      const email = "jviewcorp@gmail.com";
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(email).then(() => {
+          showToast("문의 이메일(jviewcorp@gmail.com)이 복사되었습니다! ✉️");
+        }).catch(() => {
+          fallbackCopyEmail(email);
+        });
       } else {
-        copyPageLink();
+        fallbackCopyEmail(email);
       }
+    }
+
+    function fallbackCopyEmail(text) {
+      const ta = document.createElement("textarea");
+      ta.value = text;
+      ta.style.position = "fixed";
+      ta.style.opacity = "0";
+      document.body.appendChild(ta);
+      ta.select();
+      try {
+        document.execCommand("copy");
+        showToast("문의 이메일(jviewcorp@gmail.com)이 복사되었습니다! ✉️");
+      } catch (e) {
+        showToast("이메일: " + text);
+      }
+      document.body.removeChild(ta);
     }
 
     // ==========================================
@@ -1065,15 +1079,27 @@
         "61": "전남대학교 식품영양과학부"
       };
 
+      const schoolName = refCode ? (schoolMap[refCode] || `미등록 코드(${refCode})`) : null;
+      const deviceType = /Mobi|Android/i.test(navigator.userAgent) ? '모바일' : 'PC';
+
+      // 📊 구글 스프레드시트 유입 기록 전송 (Apps Script 웹 앱 연동)
+      const GOOGLE_SHEET_URL = "https://script.google.com/macros/s/AKfycbxNpiKE0Qy-b8Jsf_H-tNDTl7eA1qLmb__HQC3AhomubRwT6CuOTaua2Jjno5l8pF7oAQ/exec";
+      if (GOOGLE_SHEET_URL) {
+        const logRef = schoolName || '직접 접속';
+        fetch(`${GOOGLE_SHEET_URL}?ref=${encodeURIComponent(logRef)}&device=${encodeURIComponent(deviceType)}`, {
+          method: 'GET',
+          mode: 'no-cors'
+        }).catch(() => {});
+      }
+
       if (refCode) {
-        const schoolName = schoolMap[refCode] || `미등록 코드(${refCode})`;
         console.log(`[접속 유입] ${schoolName}`);
 
         // 텔레그램 알림 설정 (토큰 입력 시 활성화)
         const TG_TOKEN = ""; // 필요시 입력
         const TG_CHAT_ID = ""; // 필요시 입력
         if (TG_TOKEN && TG_CHAT_ID) {
-          const msg = encodeURIComponent(`🥩 [육우요리대회] 방문자 유입!\n🏫 유입처: ${schoolName}\n📱 기기: ${navigator.userAgent.includes('Mobile') ? '모바일' : 'PC'}`);
+          const msg = encodeURIComponent(`🥩 [육우요리대회] 방문자 유입!\n🏫 유입처: ${schoolName}\n📱 기기: ${deviceType}`);
           fetch(`https://api.telegram.org/bot${TG_TOKEN}/sendMessage?chat_id=${TG_CHAT_ID}&text=${msg}`).catch(()=>{});
         }
 
